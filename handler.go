@@ -60,7 +60,7 @@ func (h interactionHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 		// Overwrite original drop down message.
 		originalMessage := message.OriginalMessage
-		originalMessage.Attachments[0].Text = fmt.Sprintf("OK to order %s ?", strings.Title(value))
+		originalMessage.Attachments[0].Text = fmt.Sprintf("OK to select %s ?", strings.Title(value))
 		originalMessage.Attachments[0].Actions = []slack.AttachmentAction{
 			{
 				Name:  actionStart,
@@ -82,11 +82,11 @@ func (h interactionHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(&originalMessage)
 		return
 	case actionStart:
-		title := ":ok: your order was submitted! yay!"
+		title := ":ok: your select was submitted! yay!"
 		responseMessage(w, message.OriginalMessage, title, "")
 		return
 	case actionCancel:
-		title := fmt.Sprintf(":x: @%s canceled the request", message.User.Name)
+		title := fmt.Sprintf(":x: @%s canceled the select", message.User.Name)
 		responseMessage(w, message.OriginalMessage, title, "")
 		return
 	default:

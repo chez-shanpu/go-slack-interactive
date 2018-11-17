@@ -61,33 +61,33 @@ func (s *SlackListener) handleMessageEvent(ev *slack.MessageEvent) error {
 
 	// value is passed to message handler when request is approved.
 	attachment := slack.Attachment{
-		Text:       "Which beer do you want? :beer:",
+		Text:       "Which language do you like?",
 		Color:      "#f9a41b",
-		CallbackID: "beer",
+		CallbackID: "language",
 		Actions: []slack.AttachmentAction{
 			{
 				Name: actionSelect,
 				Type: "select",
 				Options: []slack.AttachmentActionOption{
 					{
-						Text:  "Asahi Super Dry",
-						Value: "Asahi Super Dry",
+						Text:  "Python",
+						Value: "Python",
 					},
 					{
-						Text:  "Kirin Lager Beer",
-						Value: "Kirin Lager Beer",
+						Text:  "Ruby",
+						Value: "Ruby",
 					},
 					{
-						Text:  "Sapporo Black Label",
-						Value: "Sapporo Black Label",
+						Text:  "Go",
+						Value: "Go",
 					},
 					{
-						Text:  "Suntory Malts",
-						Value: "Suntory Malts",
+						Text:  "C#",
+						Value: "C#",
 					},
 					{
-						Text:  "Yona Yona Ale",
-						Value: "Yona Yona Ale",
+						Text:  "日本語",
+						Value: "japanese",
 					},
 				},
 			},
